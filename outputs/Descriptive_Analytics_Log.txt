@@ -1,0 +1,35 @@
+=== THESIS DESCRIPTIVE ANALYTICS LOG ===
+
+Data loaded successfully. Output directories mapped.
+
+==================================================
+1. Dataset Summary Statistics
+==================================================
+       code_token_length  comment_word_count         mcv         sfv  adak_index  codebert_score
+count         12000.0000          12000.0000  12000.0000  12000.0000  12000.0000      12000.0000
+mean             96.6532             29.8131      4.1989     23.1374    144.9685          0.9598
+std              82.8379             48.6418      6.6804     24.4346    665.5459          0.0264
+min              17.0000              1.0000      0.8000      0.3000    -99.5916          0.7985
+25%              42.0000              8.0000      0.8000      8.7000    -94.2029          0.9482
+50%              67.0000             16.0000      2.4000     15.9000    -85.4545          0.9679
+75%             118.0000             34.0000      4.8000     29.4000    -44.6541          0.9780
+max             511.0000           1472.0000    226.4000    195.9000  16166.6667          0.9998
+
+Summary statistics saved to: C:\Users\HP\Desktop\thesis_preprocessing\outputs\Table_Summary_Statistics.csv
+
+==================================================
+2. Code vs. Comment Volume Correlation
+==================================================
+Pearson Correlation (SFV vs MCV): 0.0501 (p-value: 3.9440e-08)
+
+==================================================
+3. Semantic Ground Truth Validation (CodeBERT Distributions)
+==================================================
+Mean CodeBERT Score (Valid):    0.9598
+Mean CodeBERT Score (Swapped):  0.9544
+Mean CodeBERT Score (Shuffled): 0.9523
+
+==================================================
+4. Adak Index Distribution
+==================================================
+Adak Index Skewness: 5.9206 (Highly right-skewed indicates extreme outliers)

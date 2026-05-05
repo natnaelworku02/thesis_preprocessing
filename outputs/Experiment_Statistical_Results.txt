@@ -1,0 +1,81 @@
+=== THESIS STATISTICAL RESULTS LOG ===
+
+Data loaded successfully. Output directories mapped.
+
+==================================================
+Test A: Swapped Distractors (Topic Distortion)
+==================================================
+Feature Importances:
+  Adak Index: 0.3346
+  CodeBERT:   0.6654
+
+Confusion Matrix:
+[[1336 1073]
+ [1118 1273]]
+
+Classification Report:
+                precision    recall  f1-score   support
+
+Distractor (0)       0.54      0.55      0.55      2409
+     Valid (1)       0.54      0.53      0.54      2391
+
+      accuracy                           0.54      4800
+     macro avg       0.54      0.54      0.54      4800
+  weighted avg       0.54      0.54      0.54      4800
+
+
+==================================================
+Test B: Shuffled Distractors (Grammar Distortion)
+==================================================
+Feature Importances:
+  Adak Index: 0.5020
+  CodeBERT:   0.4980
+
+Confusion Matrix:
+[[1918  491]
+ [ 677 1714]]
+
+Classification Report:
+                precision    recall  f1-score   support
+
+Distractor (0)       0.74      0.80      0.77      2409
+     Valid (1)       0.78      0.72      0.75      2391
+
+      accuracy                           0.76      4800
+     macro avg       0.76      0.76      0.76      4800
+  weighted avg       0.76      0.76      0.76      4800
+
+
+==================================================
+Experiment 2: Paradigm Bias Analysis
+==================================================
+ANOVA Results:
+F-Statistic: 724.3972 | p-value: 9.8045e-298
+
+Conclusion: Significant variance exists between programming paradigms.
+
+Executing Tukey HSD Post-Hoc Test to identify specific differences:
+        Multiple Comparison of Means - Tukey HSD, FWER=0.05        
+===================================================================
+     group1       group2   meandiff p-adj   lower    upper   reject
+-------------------------------------------------------------------
+Object-Oriented Procedural -19.7955 0.4835 -60.1548  20.5639  False
+Object-Oriented  Scripting 430.1203    0.0 400.0382 460.2024   True
+     Procedural  Scripting 449.9158    0.0 411.8646 487.9669   True
+-------------------------------------------------------------------
+
+==================================================
+Experiment 3: Complexity Threshold Analysis
+==================================================
+Overall Baseline Spearman Correlation: 0.3396 (p-value: 0.0000e+00)
+
+Spearman Correlation by Complexity Segment:
+Bucket: Small (SFV < 15) (n=5782)
+Spearman Correlation: -0.2133 (p-value: 1.8248e-60)
+
+Bucket: Medium (SFV 15-40) (n=4305)
+Spearman Correlation: 0.6824 (p-value: 0.0000e+00)
+
+Bucket: Large (SFV > 40) (n=1913)
+Spearman Correlation: 0.8283 (p-value: 0.0000e+00)
+
