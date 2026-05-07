@@ -47,22 +47,16 @@ Distractor (0)       0.74      0.80      0.77      2409
 
 
 ==================================================
-Experiment 2: Paradigm Bias Analysis
+Experiment 2: Paradigm Bias Analysis (Kruskal-Wallis)
 ==================================================
-ANOVA Results:
-F-Statistic: 724.3972 | p-value: 9.8045e-298
+Kruskal-Wallis Results:
+H-Statistic: 1104.8482 | p-value: 1.2169e-240
 
 Conclusion: Significant variance exists between programming paradigms.
-
-Executing Tukey HSD Post-Hoc Test to identify specific differences:
-        Multiple Comparison of Means - Tukey HSD, FWER=0.05        
-===================================================================
-     group1       group2   meandiff p-adj   lower    upper   reject
--------------------------------------------------------------------
-Object-Oriented Procedural -19.7955 0.4835 -60.1548  20.5639  False
-Object-Oriented  Scripting 430.1203    0.0 400.0382 460.2024   True
-     Procedural  Scripting 449.9158    0.0 411.8646 487.9669   True
--------------------------------------------------------------------
+                 Object-Oriented     Procedural      Scripting
+Object-Oriented     1.000000e+00   3.680789e-96   6.011903e-43
+Procedural          3.680789e-96   1.000000e+00  4.772400e-239
+Scripting           6.011903e-43  4.772400e-239   1.000000e+00
 
 ==================================================
 Experiment 3: Complexity Threshold Analysis

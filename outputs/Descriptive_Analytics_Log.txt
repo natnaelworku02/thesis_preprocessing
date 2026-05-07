@@ -20,7 +20,7 @@ Summary statistics saved to: C:\Users\HP\Desktop\thesis_preprocessing\outputs\Ta
 ==================================================
 2. Code vs. Comment Volume Correlation
 ==================================================
-Pearson Correlation (SFV vs MCV): 0.0501 (p-value: 3.9440e-08)
+Spearman Correlation (SFV vs MCV): -0.0491 (p-value: 7.2908e-08)
 
 ==================================================
 3. Semantic Ground Truth Validation (CodeBERT Distributions)
