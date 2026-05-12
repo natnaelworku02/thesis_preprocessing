@@ -1,35 +1,49 @@
 === THESIS DESCRIPTIVE ANALYTICS LOG ===
 
-Data loaded successfully. Output directories mapped.
+Setup Complete. Data loaded and preprocessed.
 
 ==================================================
-1. Dataset Summary Statistics
+1. EXPERIMENTAL CLASS VALIDATION
 ==================================================
-       code_token_length  comment_word_count         mcv         sfv  adak_index  codebert_score
-count         12000.0000          12000.0000  12000.0000  12000.0000  12000.0000      12000.0000
-mean             96.6532             29.8131      4.1989     23.1374    144.9685          0.9598
-std              82.8379             48.6418      6.6804     24.4346    665.5459          0.0264
-min              17.0000              1.0000      0.8000      0.3000    -99.5916          0.7985
-25%              42.0000              8.0000      0.8000      8.7000    -94.2029          0.9482
-50%              67.0000             16.0000      2.4000     15.9000    -85.4545          0.9679
-75%             118.0000             34.0000      4.8000     29.4000    -44.6541          0.9780
-max             511.0000           1472.0000    226.4000    195.9000  16166.6667          0.9998
-
-Summary statistics saved to: C:\Users\HP\Desktop\thesis_preprocessing\outputs\Table_Summary_Statistics.csv
+Sample Size (Class 1 - Original): 12000
+Sample Size (Class 0 - Swapped):  12000
+Sample Size (Class 2 - Shuffled): 12000
 
 ==================================================
-2. Code vs. Comment Volume Correlation
+2. DEEP STATISTICAL PROFILING
 ==================================================
-Spearman Correlation (SFV vs MCV): -0.0491 (p-value: 7.2908e-08)
+GLOBAL STATISTICS (All Languages Combined):
+                      count     mean      std      min      25%      50%       75%        max     mode  skewness  kurtosis
+adak_index          12000.0 -73.5733  48.6447 -99.4624 -93.8697 -87.3016  -69.8113  1605.0505 -88.4058   11.9735  285.1411
+codebert_score      12000.0   0.9597   0.0266   0.8239   0.9477   0.9678    0.9779     0.9996   0.9756   -1.3566    1.8910
+mcv                 12000.0   3.5603   5.5567   0.8000   0.8000   2.4000    4.0000   195.2000   0.8000   10.9372  249.6134
+sfv                 12000.0  22.3506  20.9026   1.5000   9.3000  15.0000   27.3000   151.8000   6.9000    2.4506    7.3131
+code_token_length   12000.0  97.3067  84.1026  16.0000  42.0000  67.0000  119.0000   512.0000  25.0000    2.1062    4.8299
+comment_word_count  12000.0  29.5690  48.3622   1.0000   8.0000  16.0000   34.0000  1812.0000   7.0000   11.7223  291.2143
+
+Detailed per-language statistics saved to outputs folder.
 
 ==================================================
-3. Semantic Ground Truth Validation (CodeBERT Distributions)
+3. ML DATA NORMALIZATION ANALYSIS
 ==================================================
-Mean CodeBERT Score (Valid):    0.9598
-Mean CodeBERT Score (Swapped):  0.9544
-Mean CodeBERT Score (Shuffled): 0.9523
+Normalization complete. Distribution graph saved to demonstrate feature alignment for ML.
 
 ==================================================
-4. Adak Index Distribution
+4. CODE COMPLEXITY (SFV) DISTRIBUTION ANALYSIS
 ==================================================
-Adak Index Skewness: 5.9206 (Highly right-skewed indicates extreme outliers)
+SFV distribution histograms generated successfully with robust percentile clipping.
+
+==================================================
+5. VARIABLE RELATIONSHIP CORRELATIONS
+==================================================
+Spearman Correlation (SFV vs MCV): 0.0559 (p-value: 9.0619e-10)
+Spearman Correlation (SFV vs CodeBERT): -0.2207 (p-value: 2.5039e-132)
+
+==================================================
+6. SEMANTIC GROUND TRUTH VALIDATION
+==================================================
+Mean CodeBERT Score (Valid):    0.9597
+Mean CodeBERT Score (Swapped):  0.9549
+Mean CodeBERT Score (Shuffled): 0.9530
+
+Descriptive Analytics successfully completed.

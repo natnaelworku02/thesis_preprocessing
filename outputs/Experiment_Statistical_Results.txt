@@ -1,75 +1,61 @@
 === THESIS STATISTICAL RESULTS LOG ===
 
-Data loaded successfully. Output directories mapped.
+Setup Complete. Data loaded.
 
 ==================================================
-Test A: Swapped Distractors (Topic Distortion)
+Test A: Swapped Distractors (Binary)
 ==================================================
-Feature Importances:
-  Adak Index: 0.3346
-  CodeBERT:   0.6654
-
-Confusion Matrix:
-[[1336 1073]
- [1118 1273]]
-
-Classification Report:
-                precision    recall  f1-score   support
-
-Distractor (0)       0.54      0.55      0.55      2409
-     Valid (1)       0.54      0.53      0.54      2391
-
-      accuracy                           0.54      4800
-     macro avg       0.54      0.54      0.54      4800
-  weighted avg       0.54      0.54      0.54      4800
-
 
 ==================================================
-Test B: Shuffled Distractors (Grammar Distortion)
+Test B: Shuffled Distractors (Binary)
 ==================================================
-Feature Importances:
-  Adak Index: 0.5020
-  CodeBERT:   0.4980
 
-Confusion Matrix:
-[[1918  491]
- [ 677 1714]]
+==================================================
+Experiment 1: 3-Class Multi-Feature Analysis & SHAP
+==================================================
+              precision    recall  f1-score   support
 
-Classification Report:
-                precision    recall  f1-score   support
+ Swapped (0)       0.52      0.49      0.51      2400
+   Valid (1)       0.46      0.43      0.45      2400
+Shuffled (2)       0.68      0.76      0.72      2400
 
-Distractor (0)       0.74      0.80      0.77      2409
-     Valid (1)       0.78      0.72      0.75      2391
-
-      accuracy                           0.76      4800
-     macro avg       0.76      0.76      0.76      4800
-  weighted avg       0.76      0.76      0.76      4800
+    accuracy                           0.56      7200
+   macro avg       0.56      0.56      0.56      7200
+weighted avg       0.56      0.56      0.56      7200
 
 
 ==================================================
-Experiment 2: Paradigm Bias Analysis (Kruskal-Wallis)
+Experiment 1: 3-Class Multi-Feature Analysis & SHAP
+==================================================
+--- Multi-Feature Model Classification Report ---
+              precision    recall  f1-score   support
+
+ Swapped (0)       0.52      0.49      0.51      2400
+   Valid (1)       0.46      0.43      0.45      2400
+Shuffled (2)       0.68      0.76      0.72      2400
+
+    accuracy                           0.56      7200
+   macro avg       0.56      0.56      0.56      7200
+weighted avg       0.56      0.56      0.56      7200
+
+SHAP analysis completed and plot saved.
+
+==================================================
+Experiment 2: Paradigm Bias (Kruskal-Wallis)
 ==================================================
 Kruskal-Wallis Results:
-H-Statistic: 1104.8482 | p-value: 1.2169e-240
+H-Statistic: 686.6990 | p-value: 7.6773e-150
 
-Conclusion: Significant variance exists between programming paradigms.
+Dunn's Post-Hoc Test:
                  Object-Oriented     Procedural      Scripting
-Object-Oriented     1.000000e+00   3.680789e-96   6.011903e-43
-Procedural          3.680789e-96   1.000000e+00  4.772400e-239
-Scripting           6.011903e-43  4.772400e-239   1.000000e+00
+Object-Oriented     1.000000e+00  1.355621e-124   1.000000e+00
+Procedural         1.355621e-124   1.000000e+00  4.400879e-133
+Scripting           1.000000e+00  4.400879e-133   1.000000e+00
 
 ==================================================
 Experiment 3: Complexity Threshold Analysis
 ==================================================
-Overall Baseline Spearman Correlation: 0.3396 (p-value: 0.0000e+00)
-
 Spearman Correlation by Complexity Segment:
-Bucket: Small (SFV < 15) (n=5782)
-Spearman Correlation: -0.2133 (p-value: 1.8248e-60)
-
-Bucket: Medium (SFV 15-40) (n=4305)
-Spearman Correlation: 0.6824 (p-value: 0.0000e+00)
-
-Bucket: Large (SFV > 40) (n=1913)
-Spearman Correlation: 0.8283 (p-value: 0.0000e+00)
-
+Bucket: Small (SFV < 15) (n=6002) | Corr: 0.0811 (p=3.2031e-10)
+Bucket: Medium (SFV 15-40) (n=4387) | Corr: 0.6613 (p=0.0000e+00)
+Bucket: Large (SFV > 40) (n=1611) | Corr: 0.8332 (p=0.0000e+00)
