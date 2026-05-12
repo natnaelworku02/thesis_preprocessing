@@ -13,20 +13,6 @@ Test B: Shuffled Distractors (Binary)
 ==================================================
 Experiment 1: 3-Class Multi-Feature Analysis & SHAP
 ==================================================
-              precision    recall  f1-score   support
-
- Swapped (0)       0.52      0.49      0.51      2400
-   Valid (1)       0.46      0.43      0.45      2400
-Shuffled (2)       0.68      0.76      0.72      2400
-
-    accuracy                           0.56      7200
-   macro avg       0.56      0.56      0.56      7200
-weighted avg       0.56      0.56      0.56      7200
-
-
-==================================================
-Experiment 1: 3-Class Multi-Feature Analysis & SHAP
-==================================================
 --- Multi-Feature Model Classification Report ---
               precision    recall  f1-score   support
 
@@ -41,16 +27,36 @@ weighted avg       0.56      0.56      0.56      7200
 SHAP analysis completed and plot saved.
 
 ==================================================
-Experiment 2: Paradigm Bias (Kruskal-Wallis)
+Experiment 2: Paradigm Bias Analysis
 ==================================================
 Kruskal-Wallis Results:
-H-Statistic: 686.6990 | p-value: 7.6773e-150
+H-Statistic: 714.0718 | p-value: 1.8650e-154
 
+Conclusion: Significant variance exists between paradigms.
 Dunn's Post-Hoc Test:
-                 Object-Oriented     Procedural      Scripting
-Object-Oriented     1.000000e+00  1.355621e-124   1.000000e+00
-Procedural         1.355621e-124   1.000000e+00  4.400879e-133
-Scripting           1.000000e+00  4.400879e-133   1.000000e+00
+                                     Multi-Paradigm (Dynamically Typed)  \
+Multi-Paradigm (Dynamically Typed)                         1.000000e+00   
+Object-Oriented (Dynamically Typed)                        7.375934e-04   
+Object-Oriented (Statically Typed)                         6.145277e-02   
+Procedural (Statically Typed)                             8.801757e-133   
+
+                                     Object-Oriented (Dynamically Typed)  \
+Multi-Paradigm (Dynamically Typed)                          7.375934e-04   
+Object-Oriented (Dynamically Typed)                         1.000000e+00   
+Object-Oriented (Statically Typed)                          1.006629e-06   
+Procedural (Statically Typed)                              1.866983e-118   
+
+                                     Object-Oriented (Statically Typed)  \
+Multi-Paradigm (Dynamically Typed)                         6.145277e-02   
+Object-Oriented (Dynamically Typed)                        1.006629e-06   
+Object-Oriented (Statically Typed)                         1.000000e+00   
+Procedural (Statically Typed)                              1.547133e-71   
+
+                                     Procedural (Statically Typed)  
+Multi-Paradigm (Dynamically Typed)                   8.801757e-133  
+Object-Oriented (Dynamically Typed)                  1.866983e-118  
+Object-Oriented (Statically Typed)                    1.547133e-71  
+Procedural (Statically Typed)                         1.000000e+00  
 
 ==================================================
 Experiment 3: Complexity Threshold Analysis
