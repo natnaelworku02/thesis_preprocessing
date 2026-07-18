@@ -1,30 +1,57 @@
 === THESIS STATISTICAL RESULTS LOG ===
 
-Setup Complete. Data loaded.
+Data successfully loaded, prepared, and logging initialized.
 
 ==================================================
-Test A: Swapped Distractors (Binary)
+1. General Correlation Analysis (Spearman)
 ==================================================
+Spearman Correlation Matrix against Target Label:
+                       label
+label               1.000000
+comment_word_count  0.001759
+sfv                 0.000000
+code_token_length   0.000000
+codebert_score     -0.088050
+adak_index         -0.376770
+mcv                -0.521739
+Correlation Heatmap generated and saved.
 
 ==================================================
-Test B: Shuffled Distractors (Binary)
+2. Model Comparison Arena
 ==================================================
+Training Logistic Regression...
+Logistic Regression Accuracy: 0.5793
 
-==================================================
-Experiment 1: 3-Class Multi-Feature Analysis & SHAP
-==================================================
---- Multi-Feature Model Classification Report ---
+Training Decision Tree...
+Decision Tree Accuracy: 0.5419
+
+Training Random Forest...
+Random Forest Accuracy: 0.5656
+
+
+WINNING MODEL: Logistic Regression with Accuracy = 0.5793
+
+Classification Report for Best Model:
               precision    recall  f1-score   support
 
- Swapped (0)       0.52      0.49      0.51      2400
-   Valid (1)       0.46      0.43      0.45      2400
-Shuffled (2)       0.68      0.76      0.72      2400
+ Swapped (0)       0.49      0.28      0.35      2400
+   Valid (1)       0.53      0.52      0.52      2400
+Shuffled (2)       0.65      0.94      0.77      2400
 
-    accuracy                           0.56      7200
-   macro avg       0.56      0.56      0.56      7200
-weighted avg       0.56      0.56      0.56      7200
+    accuracy                           0.58      7200
+   macro avg       0.56      0.58      0.55      7200
+weighted avg       0.56      0.58      0.55      7200
 
-SHAP analysis completed and plot saved.
+
+==================================================
+3. Interpretability Analysis (SHAP & LIME) for Logistic Regression
+==================================================
+Calculating SHAP values...
+SHAP summary plot saved.
+
+Calculating LIME (Local Interpretability)...
+LIME explanation for a 'Valid' prediction saved as HTML in outputs/figures/
+LIME explanation for a 'Swapped' prediction saved as HTML in outputs/figures/
 
 ==================================================
 Experiment 2: Paradigm Bias Analysis

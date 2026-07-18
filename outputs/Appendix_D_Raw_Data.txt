@@ -1,0 +1,53 @@
+EXAMPLE 1 | LANGUAGE: GO
+[CODE_START]
+func (c *Client) Address() tcpip.Address {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	return c.addr
+}
+[CODE_END]
+[ORIGINAL_START]
+// Address reports the IP address acquired by the DHCP client.
+[ORIGINAL_END]
+[SWAPPED_START]
+Show the current list of todos by reading them from the database
+[SWAPPED_END]
+[SHUFFLED_START]
+acquired // address reports DHCP IP the client. by the Address
+[SHUFFLED_END]
+
+EXAMPLE 2 | LANGUAGE: GO
+[CODE_START]
+func (s *CreateResolverEndpointInput) SetName(v string) *CreateResolverEndpointInput {
+	s.Name = &v
+	return s
+}
+[CODE_END]
+[ORIGINAL_START]
+// SetName sets the Name field's value.
+[ORIGINAL_END]
+[SWAPPED_START]
+Return a shallow copy of the sorted dictionary.
+[SWAPPED_END]
+[SHUFFLED_START]
+sets field's value. // the SetName Name
+[SHUFFLED_END]
+
+EXAMPLE 3 | LANGUAGE: GO
+[CODE_START]
+func ObjectPtrLabel(ptr unsafe.Pointer, length int32, label *uint8) {
+	syscall.Syscall(gpObjectPtrLabel, 3, uintptr(ptr), uintptr(length), uintptr(unsafe.Pointer(label)))
+}
+[CODE_END]
+[ORIGINAL_START]
+// label a a sync object identified by a pointer
+[ORIGINAL_END]
+[SWAPPED_START]
+Retrieve value(s) from SESSION.
+@param string key
+@return array || string
+[SWAPPED_END]
+[SHUFFLED_START]
+a by sync object a // a label identified pointer
+[SHUFFLED_END]
+
