@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div6C76BQH7KOG7481"></div>
+        <div class="lime top_div" id="top_divZTMYMBGB304QI03"></div>
         
         <script>
-        var top_div = d3.select('#top_div6C76BQH7KOG7481').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZTMYMBGB304QI03').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["Swapped (0)", "Valid (1)", "Shuffled (2)"], [0.4933945230001699, 0.5061013567619232, 0.0005041202379068439]);
+            var pp = new lime.PredictProba(pp_svg, ["Swapped (0)", "Valid (1)", "Shuffled (2)"], [6.350303010549396e-06, 0.9999920129776001, 1.6242045148828765e-06]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["Swapped (0)", "Valid (1)", "Shuffled (2)"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["-0.30 < comment_word_count <= 0.11", 0.05599230520290764], ["-0.42 < mcv <= 0.14", -0.030303570011636055], ["0.27 < codebert_score <= 0.68", 0.023182284651543265], ["-0.36 < code_token_length <= 0.26", -0.004119775611774649]], 1, exp_div);
+                exp.show([["codebert_score > 1.43", 0.8207827772459075], ["-0.42 < mcv <= 0.14", -0.023045122436632592], ["-0.27 < adak_index <= 0.02", -0.013067530955514961], ["-0.30 < comment_word_count <= 0.11", -0.009280989789274345]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["comment_word_count", "-0.23", 0.05599230520290764], ["mcv", "-0.05", -0.030303570011636055], ["codebert_score", "0.34", 0.023182284651543265], ["code_token_length", "-0.34", -0.004119775611774649]], 1, raw_div);
+            exp.show_raw_tabular([["codebert_score", "1.43", 0.8207827772459075], ["mcv", "-0.05", -0.023045122436632592], ["adak_index", "-0.20", -0.013067530955514961], ["comment_word_count", "-0.23", -0.009280989789274345]], 1, raw_div);
         
         </script>
         </body></html>
