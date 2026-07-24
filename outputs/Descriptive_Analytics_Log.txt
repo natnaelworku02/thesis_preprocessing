@@ -3,25 +3,15 @@
 Setup Complete. Data loaded and preprocessed.
 
 ==================================================
-1. EXPERIMENTAL CLASS VALIDATION
-==================================================
-Sample Size (Class 1 - Original): 12000
-Sample Size (Class 0 - Swapped):  12000
-Sample Size (Class 2 - Shuffled): 12000
-
-==================================================
 2. DEEP STATISTICAL PROFILING
 ==================================================
 GLOBAL STATISTICS (All Languages Combined):
-                      count     mean      std      min      25%      50%       75%        max     mode  skewness  kurtosis
-adak_index          12000.0 -73.5733  48.6447 -99.4624 -93.8697 -87.3016  -69.8113  1605.0505 -88.4058   11.9735  285.1411
-codebert_score      12000.0   0.9597   0.0266   0.8239   0.9477   0.9678    0.9779     0.9996   0.9756   -1.3566    1.8910
-mcv                 12000.0   3.5603   5.5567   0.8000   0.8000   2.4000    4.0000   195.2000   0.8000   10.9372  249.6134
-sfv                 12000.0  22.3506  20.9026   1.5000   9.3000  15.0000   27.3000   151.8000   6.9000    2.4506    7.3131
-code_token_length   12000.0  97.3067  84.1026  16.0000  42.0000  67.0000  119.0000   512.0000  25.0000    2.1062    4.8299
-comment_word_count  12000.0  29.5690  48.3622   1.0000   8.0000  16.0000   34.0000  1812.0000   7.0000   11.7223  291.2143
-
-Detailed per-language statistics saved to outputs folder.
+                   mean      50%     mode  skewness  kurtosis
+adak_index     -73.5733 -87.3016 -88.4058   11.9735  285.1411
+adak_ss        -77.4123 -88.2823 -89.3044   15.0761  497.7170
+codebert_score   0.9737   0.9998   0.9998   -5.5064   31.8254
+mcv              3.5603   2.4000   0.8000   10.9372  249.6134
+sfv             22.3506  15.0000   6.9000    2.4506    7.3131
 
 ==================================================
 3. ML DATA NORMALIZATION ANALYSIS
@@ -31,19 +21,9 @@ Normalization complete. Distribution graph saved to demonstrate feature alignmen
 ==================================================
 4. CODE COMPLEXITY (SFV) DISTRIBUTION ANALYSIS
 ==================================================
-SFV distribution histograms generated successfully with robust percentile clipping.
-
-==================================================
-5. VARIABLE RELATIONSHIP CORRELATIONS
-==================================================
-Spearman Correlation (SFV vs MCV): 0.0559 (p-value: 9.0619e-10)
-Spearman Correlation (SFV vs CodeBERT): -0.2207 (p-value: 2.5039e-132)
 
 ==================================================
 6. SEMANTIC GROUND TRUTH VALIDATION
 ==================================================
-Mean CodeBERT Score (Valid):    0.9597
-Mean CodeBERT Score (Swapped):  0.9549
-Mean CodeBERT Score (Shuffled): 0.9530
 
 Descriptive Analytics successfully completed.

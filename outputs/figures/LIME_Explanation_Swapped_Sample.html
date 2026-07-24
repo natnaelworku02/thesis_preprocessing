@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div69I9J4CQM6N5XXX"></div>
+        <div class="lime top_div" id="top_divKUVA3RVT0NG7QKU"></div>
         
         <script>
-        var top_div = d3.select('#top_div69I9J4CQM6N5XXX').classed('lime top_div', true);
+        var top_div = d3.select('#top_divKUVA3RVT0NG7QKU').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["Swapped (0)", "Valid (1)", "Shuffled (2)"], [0.41833311141556095, 0.2943268630244118, 0.28734002556002725]);
+            var pp = new lime.PredictProba(pp_svg, ["Swapped (0)", "Valid (1)", "Shuffled (2)"], [0.4807000458240509, 2.9099825042067096e-05, 0.5192708373069763]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["Swapped (0)", "Valid (1)", "Shuffled (2)"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["codebert_score <= -0.39", -0.09572348822049609], ["comment_word_count <= -0.48", 0.05322629342622391], ["adak_index <= -0.38", -0.01034934540303988], ["mcv <= -0.42", 0.005515027478289635]], 1, exp_div);
+                exp.show([["-0.72 < codebert_score <= 1.43", 0.21970412274662873], ["adak_index <= -0.38", -0.05510480703350869], ["comment_word_count <= -0.48", 0.022765619382646558], ["mcv <= -0.42", -0.009946543946924917]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["codebert_score", "-1.71", -0.09572348822049609], ["comment_word_count", "-0.59", 0.05322629342622391], ["adak_index", "-0.42", -0.01034934540303988], ["mcv", "-0.42", 0.005515027478289635]], 1, raw_div);
+            exp.show_raw_tabular([["codebert_score", "-0.72", 0.21970412274662873], ["adak_index", "-0.42", -0.05510480703350869], ["comment_word_count", "-0.59", 0.022765619382646558], ["mcv", "-0.42", -0.009946543946924917]], 1, raw_div);
         
         </script>
         </body></html>

@@ -1,6 +1,10 @@
 === THESIS STATISTICAL RESULTS LOG ===
 
-Data successfully loaded, prepared, and logging initialized.
+Environment Ready. Datasets loaded with new candidate metrics (adak_ss, lsa_index, adak_sqrt).
+
+==================================================
+1. General Correlation Analysis (Spearman)
+==================================================
 
 ==================================================
 1. General Correlation Analysis (Spearman)
@@ -9,86 +13,145 @@ Spearman Correlation Matrix against Target Label:
                        label
 label               1.000000
 comment_word_count  0.001759
-sfv                 0.000000
 code_token_length   0.000000
-codebert_score     -0.088050
+sfv                 0.000000
+adak_lsa           -0.297568
+codebert_score     -0.314600
 adak_index         -0.376770
+adak_damped        -0.388315
+adak_ss            -0.396328
+adak_sqrt          -0.465785
 mcv                -0.521739
-Correlation Heatmap generated and saved.
+Updated Correlation Heatmap generated and saved.
 
 ==================================================
-2. Model Comparison Arena
+2. Model Comparison Arena & 4x3 Ablation Grid
 ==================================================
+
+--- Feature Set: Full Set (6 Features) ---
 Training Logistic Regression...
-Logistic Regression Accuracy: 0.5793
-
 Training Decision Tree...
-Decision Tree Accuracy: 0.5419
-
 Training Random Forest...
-Random Forest Accuracy: 0.5656
+Training XGBoost Classifier...
 
+--- Feature Set: Structural-Only (5 Features) ---
+Training Logistic Regression...
+Training Decision Tree...
+Training Random Forest...
+Training XGBoost Classifier...
 
-WINNING MODEL: Logistic Regression with Accuracy = 0.5793
-
-Classification Report for Best Model:
-              precision    recall  f1-score   support
-
- Swapped (0)       0.49      0.28      0.35      2400
-   Valid (1)       0.53      0.52      0.52      2400
-Shuffled (2)       0.65      0.94      0.77      2400
-
-    accuracy                           0.58      7200
-   macro avg       0.56      0.58      0.55      7200
-weighted avg       0.56      0.58      0.55      7200
-
+--- Feature Set: Volume-Ablated Semantic (1 Feature) ---
+Training Logistic Regression...
+Training Decision Tree...
+Training Random Forest...
+Training XGBoost Classifier...
 
 ==================================================
-3. Interpretability Analysis (SHAP & LIME) for Logistic Regression
+FINAL 4x3 ABLATION GRID SUMMARY
 ==================================================
+                        Feature Set          Classifier  Global Accuracy  Swapped F1-Score
+              Full Set (6 Features) Logistic Regression           0.8671            0.8060
+              Full Set (6 Features)       Decision Tree           0.8874            0.8703
+              Full Set (6 Features)       Random Forest           0.8919            0.8786
+              Full Set (6 Features)  XGBoost Classifier           0.8958            0.8844
+       Structural-Only (5 Features) Logistic Regression           0.5558            0.4450
+       Structural-Only (5 Features)       Decision Tree           0.4393            0.4238
+       Structural-Only (5 Features)       Random Forest           0.4412            0.3878
+       Structural-Only (5 Features)  XGBoost Classifier           0.5196            0.3904
+Volume-Ablated Semantic (1 Feature) Logistic Regression           0.6464            0.6584
+Volume-Ablated Semantic (1 Feature)       Decision Tree           0.8654            0.8522
+Volume-Ablated Semantic (1 Feature)       Random Forest           0.8647            0.8505
+Volume-Ablated Semantic (1 Feature)  XGBoost Classifier           0.8818            0.8658
+
+WINNING CONFIGURATION: XGBoost Classifier on Full Set (6 Features) with Accuracy = 0.8958
+
+==================================================
+3. Interpretability Analysis (SHAP & LIME) for XGBoost Classifier
+==================================================
+Retraining winning model on Full Feature Set for SHAP/LIME...
+
+==================================================
+3. Interpretability Analysis (SHAP & LIME) for XGBoost Classifier
+==================================================
+Retraining winning model on Full Feature Set for SHAP/LIME...
 Calculating SHAP values...
-SHAP summary plot saved.
+SHAP summary plot generated successfully.
 
 Calculating LIME (Local Interpretability)...
-LIME explanation for a 'Valid' prediction saved as HTML in outputs/figures/
-LIME explanation for a 'Swapped' prediction saved as HTML in outputs/figures/
+LIME local predictions saved as HTML files in figures directory.
 
 ==================================================
-Experiment 2: Paradigm Bias Analysis
+Experiment 3: Complexity Threshold & Trajectory Analysis
 ==================================================
-Kruskal-Wallis Results:
-H-Statistic: 714.0718 | p-value: 1.8650e-154
+Spearman Correlation Trajectories across Complexity Buckets:
 
-Conclusion: Significant variance exists between paradigms.
+--- Metric: Original Adak ---
+Bucket: Small (SFV < 15)     | n=6002  | Spearman r_s: 0.4568 (p=2.4602e-307)
+Bucket: Medium (SFV 15-40)   | n=4387  | Spearman r_s: 0.4138 (p=4.6937e-181)
+Bucket: Large (SFV > 40)     | n=1611  | Spearman r_s: 0.4499 (p=4.1503e-81)
+
+--- Metric: Log-Stabilized (LSA) ---
+Bucket: Small (SFV < 15)     | n=6002  | Spearman r_s: 0.4239 (p=2.0624e-260)
+Bucket: Medium (SFV 15-40)   | n=4387  | Spearman r_s: 0.3920 (p=4.3967e-161)
+Bucket: Large (SFV > 40)     | n=1611  | Spearman r_s: 0.4297 (p=2.1644e-73)
+
+--- Metric: Linear Damped ---
+Bucket: Small (SFV < 15)     | n=6002  | Spearman r_s: 0.4648 (p=0.0000e+00)
+Bucket: Medium (SFV 15-40)   | n=4387  | Spearman r_s: 0.4146 (p=7.8349e-182)
+Bucket: Large (SFV > 40)     | n=1611  | Spearman r_s: 0.4501 (p=3.5083e-81)
+
+--- Metric: Square-Root Damped ---
+Bucket: Small (SFV < 15)     | n=6002  | Spearman r_s: 0.4795 (p=0.0000e+00)
+Bucket: Medium (SFV 15-40)   | n=4387  | Spearman r_s: 0.4173 (p=1.9279e-184)
+Bucket: Large (SFV > 40)     | n=1611  | Spearman r_s: 0.4528 (p=2.8763e-82)
+
+--- Metric: Syntactic Density (Adak_ss) ---
+Bucket: Small (SFV < 15)     | n=6002  | Spearman r_s: 0.4946 (p=0.0000e+00)
+Bucket: Medium (SFV 15-40)   | n=4387  | Spearman r_s: 0.4164 (p=1.4457e-183)
+Bucket: Large (SFV > 40)     | n=1611  | Spearman r_s: 0.4504 (p=2.6329e-81)
+
+==================================================
+FINAL SPEARMAN CORRELATION TRAJECTORY COMPARISON
+==================================================
+Complexity Bucket            Small (SFV < 15)  Medium (SFV 15-40)  Large (SFV > 40)
+Metric                                                                             
+Linear Damped                          0.4648              0.4146            0.4501
+Log-Stabilized (LSA)                   0.4239              0.3920            0.4297
+Original Adak                          0.4568              0.4138            0.4499
+Square-Root Damped                     0.4795              0.4173            0.4528
+Syntactic Density (Adak_ss)            0.4946              0.4164            0.4504
+
+Complexity trajectory analysis successfully completed. Stabilized charts saved.
+
+==================================================
+Experiment 2: Paradigm Bias Analysis (Adak_ss)
+==================================================
+Kruskal-Wallis Results on Adak_ss:
+H-Statistic: 704.0487 | p-value: 2.7805e-152
+
+Conclusion: Significant variance still exists between paradigms.
 Dunn's Post-Hoc Test:
                                      Multi-Paradigm (Dynamically Typed)  \
 Multi-Paradigm (Dynamically Typed)                         1.000000e+00   
-Object-Oriented (Dynamically Typed)                        7.375934e-04   
-Object-Oriented (Statically Typed)                         6.145277e-02   
-Procedural (Statically Typed)                             8.801757e-133   
+Object-Oriented (Dynamically Typed)                        1.222508e-09   
+Object-Oriented (Statically Typed)                         1.000000e+00   
+Procedural (Statically Typed)                             7.460866e-117   
 
                                      Object-Oriented (Dynamically Typed)  \
-Multi-Paradigm (Dynamically Typed)                          7.375934e-04   
+Multi-Paradigm (Dynamically Typed)                          1.222508e-09   
 Object-Oriented (Dynamically Typed)                         1.000000e+00   
-Object-Oriented (Statically Typed)                          1.006629e-06   
-Procedural (Statically Typed)                              1.866983e-118   
+Object-Oriented (Statically Typed)                          7.253389e-06   
+Procedural (Statically Typed)                              1.085688e-126   
 
                                      Object-Oriented (Statically Typed)  \
-Multi-Paradigm (Dynamically Typed)                         6.145277e-02   
-Object-Oriented (Dynamically Typed)                        1.006629e-06   
+Multi-Paradigm (Dynamically Typed)                         1.000000e+00   
+Object-Oriented (Dynamically Typed)                        7.253389e-06   
 Object-Oriented (Statically Typed)                         1.000000e+00   
-Procedural (Statically Typed)                              1.547133e-71   
+Procedural (Statically Typed)                              4.464149e-81   
 
                                      Procedural (Statically Typed)  
-Multi-Paradigm (Dynamically Typed)                   8.801757e-133  
-Object-Oriented (Dynamically Typed)                  1.866983e-118  
-Object-Oriented (Statically Typed)                    1.547133e-71  
+Multi-Paradigm (Dynamically Typed)                   7.460866e-117  
+Object-Oriented (Dynamically Typed)                  1.085688e-126  
+Object-Oriented (Statically Typed)                    4.464149e-81  
 Procedural (Statically Typed)                         1.000000e+00  
-
-==================================================
-Experiment 3: Complexity Threshold Analysis
-==================================================
-Spearman Correlation by Complexity Segment:
-Bucket: Small (SFV < 15) (n=6002) | Corr: 0.0811 (p=3.2031e-10)
-Bucket: Medium (SFV 15-40) (n=4387) | Corr: 0.6613 (p=0.0000e+00)
-Bucket: Large (SFV > 40) (n=1611) | Corr: 0.8332 (p=0.0000e+00)
+Adak_ss Boxplots generated and saved to figures folder.
