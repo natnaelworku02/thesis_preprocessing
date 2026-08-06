@@ -1,2 +1,4 @@
 data/raw/
 scripts/venv/
+data/processed_rework_v2/
+outputs/rework_v2/
